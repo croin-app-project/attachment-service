@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+
+
+  attachment-service:
+    build:
+      context: .
+      dockerfile: ./deployment/docker/Dockerfile
+    image: attachment-service
+    environment:
+      - ENVIRONMENT_MY_GO=production
+    ports:
+      - "5575:5575" # Expose the port of your application
+    healthcheck:
+      test: [
+          "CMD-SHELL",
+          "curl --fail http://localhost:5575/healthcheck || exit 1",
+        ] # Adjust the health check command based on your application's health check endpoint.
+      interval: 30s # Interval between health checks
+      timeout: 10s # Timeout for each health check attempt
+      retries: 5 # Number of retries before considering the container unhealthy
+    volumes:
+      - /root/AttachFiles:/AttachFiles
+    restart: always
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example

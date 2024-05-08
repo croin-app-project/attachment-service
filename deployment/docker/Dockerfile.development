@@ -1,0 +1,35 @@
+# Use an official Golang runtime as a parent image
+# You can choose the version you need
+FROM golang:1.21.1 AS builder
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the Go Modules files
+COPY go.mod .
+COPY go.sum .
+
+# Download and install the application dependencies
+RUN go mod download
+
+# Copy the source code into the container
+COPY . .
+
+# Build the Go application
+RUN CGO_ENABLED=0 GOOS=linux go build -o attachment-service ./cmd/main.go
+
+# Start a new stage to create a minimal image
+FROM alpine:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the compiled binary from the previous stage
+COPY --from=builder /app/attachment-service .
+
+# Copy the configuration file into the final image
+# COPY --from=builder /app/config.production.yml .
+COPY --from=builder /app/config.development.yml .
+
+# Command to run the executable
+CMD ["./attachment-service"]
