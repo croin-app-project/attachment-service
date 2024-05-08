@@ -1,0 +1,16 @@
+databases:
+  - dbname: "attachment"
+    url: "mongodb://root:example@localhost:27017/"
+    collections:
+      attachments: "attachments"
+
+server:
+  services:
+    - name: "attachment-service"
+      port: "5575"
+
+app:
+  name: "appdoc-api"
+  jwt:
+    key: "7QMeMdlE4kKXfiBC3e37iQ"
+    exp: 1
