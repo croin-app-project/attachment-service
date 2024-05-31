@@ -23,6 +23,8 @@ services:
     volumes:
       - /root/AttachFiles:/AttachFiles
     restart: always
+    networks:
+      - roin-services_roin_backend_network
 
   mongo:
     image: mongo
@@ -30,5 +32,17 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: roin
+      MONGO_INITDB_ROOT_PASSWORD: roindevdb
+    volumes:
+      - /root/db/mongo_data:/data/db
+    networks:
+      - roin-services_roin_backend_network
+
+volumes:
+  mongo_data:
+
+networks:
+  roin-services_roin_backend_network:
+    external: true
+    name: roin-services_roin_backend_network
