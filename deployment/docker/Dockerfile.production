@@ -21,6 +21,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o attachment-service ./cmd/main.go
 # Start a new stage to create a minimal image
 FROM alpine:latest
 
+# Update package list and install curl
+RUN apt-get update && apt-get install -y curl
+
+# Optional: Clean up to reduce image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -29,7 +35,6 @@ COPY --from=builder /app/attachment-service .
 
 # Copy the configuration file into the final image
 COPY --from=builder /app/config.production.yml .
-# COPY --from=builder /app/config.development.yml .
 
 # Command to run the executable
 CMD ["./attachment-service"]
