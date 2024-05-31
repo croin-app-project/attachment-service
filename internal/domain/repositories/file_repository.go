@@ -34,9 +34,15 @@ func (r *FileRepository) Save(file multipart.FileHeader) (string, error) {
 		return "", err
 	}
 
-	// Prepare directory structure based on current date
+	// Prepare directory structure based on current year
 	now := time.Now()
-	datePath := filepath.Join(workPath, now.Format("2006"), now.Format("01"), now.Format("02"))
+	yearPath := filepath.Join(workPath, now.Format("2006"))
+	if err := os.MkdirAll(yearPath, os.ModePerm); err != nil {
+		return "", err
+	}
+
+	// Prepare directory structure based on current date
+	datePath := filepath.Join(yearPath, now.Format("01"), now.Format("02"))
 	if err := os.MkdirAll(datePath, os.ModePerm); err != nil {
 		return "", err
 	}
