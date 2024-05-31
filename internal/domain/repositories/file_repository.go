@@ -85,3 +85,10 @@ func (r *FileRepository) GetFiles(paths []string) ([]domain.File, error) {
 
 	return files, nil
 }
+
+func (r *FileRepository) DeleteFiles(paths []string) error {
+	for _, path := range paths {
+		os.Remove(path)
+	}
+	return nil
+}

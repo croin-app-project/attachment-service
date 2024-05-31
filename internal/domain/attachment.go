@@ -26,7 +26,7 @@ type AttachmentPath struct {
 type IAttachmentRepository interface {
 	Exist(systemId string, templateId string, ref string) (bool, error)
 	Find(systemId string, templateId string, ref string) (*Attachment, error)
-	Create(attachment *Attachment) error
+	Create(attachment Attachment) error
 	Update(attachment *Attachment) error
 	Delete(systemId string, templateId string, ref string) error
 }

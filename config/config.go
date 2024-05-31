@@ -49,10 +49,6 @@ func ReadConfiguration() Configuration {
 	}
 	fmt.Println("ENVIRONMENT:", environment)
 
-	// viper.SetConfigName("config." + environment)
-	// viper.SetConfigType("yml")
-	// viper.AddConfigPath(".")
-	// viper.AutomaticEnv()
 	var config Configuration
 	configpath := "/config."
 

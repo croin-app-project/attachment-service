@@ -10,6 +10,7 @@ import (
 	_service "github.com/croin-app-project/attachment-service/internal/usecases"
 	_helpers "github.com/croin-app-project/attachment-service/pkg/utils/helpers"
 	"github.com/gofiber/fiber/v2"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -31,7 +32,8 @@ func main() {
 	}
 	defer client.Disconnect(context.Background())
 
-	// Create a new Fiber instance
+	// m := mapper.NewMapper()
+
 	app := fiber.New()
 	api := app.Group("/api/" + configService.Name)
 
@@ -39,10 +41,6 @@ func main() {
 	fileRepository := _repository.NewFileRepository()
 	attachmentService := _service.NewAttachmentService(attachmentRepository, fileRepository)
 	adapters.NewAttachmentController(api, attachmentService)
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
 
 	app.Listen(":" + configService.Port)
 }

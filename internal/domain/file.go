@@ -11,4 +11,5 @@ type File struct {
 type IFileRepository interface {
 	Save(file multipart.FileHeader) (string, error)
 	GetFiles(paths []string) ([]File, error)
+	DeleteFiles(paths []string) error
 }
