@@ -6,7 +6,7 @@ services:
   attachment-service:
     build:
       context: .
-      dockerfile: ./deployment/docker/Dockerfile
+      dockerfile: ./deployment/docker/Dockerfile.production
     image: attachment-service
     environment:
       - ENVIRONMENT_MY_GO=production
