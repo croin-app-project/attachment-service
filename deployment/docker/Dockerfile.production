@@ -22,10 +22,10 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o attachment-service ./cmd/main.go
 FROM alpine:latest
 
 # Update package list and install curl
-RUN apt-get update && apt-get install -y curl
+RUN apk update && apk add curl
 
 # Optional: Clean up to reduce image size
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/cache/apk/*
 
 # Set the working directory inside the container
 WORKDIR /app
