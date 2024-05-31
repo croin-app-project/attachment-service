@@ -35,6 +35,10 @@ func main() {
 	// m := mapper.NewMapper()
 
 	app := fiber.New()
+
+	app.Get("/healthcheck", func(c *fiber.Ctx) error {
+		return c.SendString("ok!")
+	})
 	api := app.Group("/api/" + configService.Name)
 
 	attachmentRepository := _repository.NewMongoAttachmentRepository(client, dbConfig.DbName, (*dbConfig.Collections)["attachments"])
