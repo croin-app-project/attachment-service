@@ -29,6 +29,11 @@ func (r *FileRepository) Save(file multipart.FileHeader) (string, error) {
 		workPath = "D:/AttachFiles"
 	}
 
+	// Ensure base workPath exists
+	if err := os.MkdirAll(workPath, os.ModePerm); err != nil {
+		return "", err
+	}
+
 	// Prepare directory structure based on current date
 	now := time.Now()
 	datePath := filepath.Join(workPath, now.Format("2006"), now.Format("01"), now.Format("02"))
