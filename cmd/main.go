@@ -8,7 +8,7 @@ import (
 	"github.com/croin-app-project/attachment-service/internal/adapters"
 	_repository "github.com/croin-app-project/attachment-service/internal/domain/repositories"
 	_service "github.com/croin-app-project/attachment-service/internal/usecases"
-	_helpers "github.com/croin-app-project/attachment-service/pkg/utils/helpers"
+	_helpers "github.com/croin-app-project/package/pkg/utils/helpers"
 	"github.com/gofiber/fiber/v2"
 
 	"go.mongodb.org/mongo-driver/mongo"

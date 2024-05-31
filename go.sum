@@ -1,10 +1,10 @@
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
+github.com/croin-app-project/package v0.0.0-20240531043845-47b38431ef89 h1:87UGNQQxjdLnIGo0+csByE2R2qzsXfqk1jmX3TOB8FE=
+github.com/croin-app-project/package v0.0.0-20240531043845-47b38431ef89/go.mod h1:b1uMzBWDPdDW4lcp6ScyrbnGxZVK6kHlgs0F88d9YvA=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/devfeel/mapper v0.7.13 h1:IE6ZITgrMH8W/xhUvJ6PInjVV8QW29idDJAUZPc9bbw=
-github.com/devfeel/mapper v0.7.13/go.mod h1:foz4u16jrssGoDfnWYQGFcthjlU6uBV5UV8uYJfKneA=
 github.com/gabriel-vasile/mimetype v1.4.3 h1:in2uUcidCuFcDKtdcBxlR0rJ1+fsokWf+uqxgUFjbI0=
 github.com/gabriel-vasile/mimetype v1.4.3/go.mod h1:d8uq/6HKRL6CGdk+aubisF/M5GcPfT7nKyLpA0lbSSk=
 github.com/go-playground/assert/v2 v2.2.0 h1:JvknZsQTYeFEAhQwI4qEt9cyV5ONwRHC+lYKSsYSR8s=

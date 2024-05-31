@@ -3,13 +3,14 @@ module github.com/croin-app-project/attachment-service
 go 1.21.1
 
 require (
-	github.com/go-playground/locales v0.14.1
-	github.com/go-playground/universal-translator v0.18.1
+	github.com/croin-app-project/package v0.0.0-20240531043845-47b38431ef89
 	github.com/gofiber/fiber/v2 v2.52.4
 )
 
 require (
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
+	github.com/go-playground/locales v0.14.1 // indirect
+	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
@@ -30,8 +31,7 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/devfeel/mapper v0.7.13
-	github.com/go-playground/validator/v10 v10.20.0
+	github.com/go-playground/validator/v10 v10.20.0 // indirect
 	github.com/google/uuid v1.5.0
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

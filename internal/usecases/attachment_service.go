@@ -7,7 +7,7 @@ import (
 
 	"github.com/croin-app-project/attachment-service/internal/domain"
 	"github.com/croin-app-project/attachment-service/internal/usecases/iservices"
-	_helpers "github.com/croin-app-project/attachment-service/pkg/utils/helpers"
+	_helpers "github.com/croin-app-project/package/pkg/utils/helpers"
 )
 
 type AttachmentServiceImpl struct {

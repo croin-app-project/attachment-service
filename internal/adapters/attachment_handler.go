@@ -4,7 +4,7 @@ import (
 	"github.com/croin-app-project/attachment-service/internal/adapters/dto"
 	"github.com/croin-app-project/attachment-service/internal/domain"
 	"github.com/croin-app-project/attachment-service/internal/usecases/iservices"
-	http_response "github.com/croin-app-project/attachment-service/pkg/utils/http-response"
+	http_response "github.com/croin-app-project/package/pkg/utils/http-response"
 	"github.com/gofiber/fiber/v2"
 )
 
