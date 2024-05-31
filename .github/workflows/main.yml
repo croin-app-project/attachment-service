@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Up services or recreate
-      run: docker-compose -f .\docker-compose.production.yml  up -d --build
+      run: docker-compose -f ./docker-compose.production.yml  up -d --build
