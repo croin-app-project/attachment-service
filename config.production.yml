@@ -1,6 +1,6 @@
 databases:
   - dbname: "attachment"
-    url: "mongodb://root:example@mongo:27017/"
+    url: "mongodb://roin:roindevdb@mongo:27017/"
     collections:
       attachments: "attachments"
 
