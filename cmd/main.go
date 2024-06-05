@@ -5,6 +5,8 @@ import (
 	"fmt"
 
 	_config "github.com/croin-app-project/attachment-service/config"
+	_middleware "github.com/croin-app-project/attachment-service/middleware"
+
 	"github.com/croin-app-project/attachment-service/internal/adapters"
 	_repository "github.com/croin-app-project/attachment-service/internal/domain/repositories"
 	_service "github.com/croin-app-project/attachment-service/internal/usecases"
@@ -32,9 +34,10 @@ func main() {
 	}
 	defer client.Disconnect(context.Background())
 
-	// m := mapper.NewMapper()
-
 	app := fiber.New()
+
+	middL := _middleware.InitMiddleware()
+	app.Use(middL.CORS())
 
 	app.Get("/healthcheck", func(c *fiber.Ctx) error {
 		return c.SendString("ok!")

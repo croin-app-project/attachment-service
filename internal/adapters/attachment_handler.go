@@ -4,6 +4,7 @@ import (
 	"github.com/croin-app-project/attachment-service/internal/adapters/dto"
 	"github.com/croin-app-project/attachment-service/internal/domain"
 	"github.com/croin-app-project/attachment-service/internal/usecases/iservices"
+	"github.com/croin-app-project/attachment-service/middleware"
 	http_response "github.com/croin-app-project/package/pkg/utils/http-response"
 	"github.com/gofiber/fiber/v2"
 )
@@ -15,7 +16,7 @@ type AttachmentControllerImpl struct {
 func NewAttachmentController(f fiber.Router, attachmentService iservices.IAttachmentService) {
 	handler := &AttachmentControllerImpl{_attachmentService: attachmentService}
 	v1 := f.Group("/v1")
-	api := v1.Group("/attachment")
+	api := v1.Group("/attachment", middleware.Authorized)
 	api.Post("", handler.Create)
 	api.Get("", handler.Find)
 	api.Delete("", handler.Delete)
